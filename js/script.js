@@ -1,3 +1,8 @@
+//Descrizione:
+//Far funzionare lo slider partendo dall’html ricevuto.
+//Al click su una freccia, l’immagine mostrata cambia.
+//la lista delle thumbs deve essere generata tramite un v-for
+
 const slides = [
     {
         image: 'img/01.jpg',
@@ -27,3 +32,16 @@ const slides = [
 ];
 
 console.log(slides);
+
+const slidesApp = new Vue({
+    el: "#app",
+    data: {
+      lista: slides,
+      clicked: false,
+    },
+    methods:{
+        onClickImg: function(indiceImg){
+            console.log(this.lista[indiceImg])
+        }
+    }
+})
