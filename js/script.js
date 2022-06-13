@@ -33,15 +33,39 @@ const slides = [
 
 console.log(slides);
 
+/**
+ * al click sulle frcce su e giu, l immagine principale deve cambiare
+ */
+
 const slidesApp = new Vue({
     el: "#app",
     data: {
       lista: slides,
-      clicked: false,
+      currentImg: slides[0],
+      //rappresenta l indice dell immagine attualmente visualizzaata
+      currentIndex: 0,
     },
     methods:{
         onClickImg: function(indiceImg){
             console.log(this.lista[indiceImg])
+        },
+
+        changeActiveImg(direction){
+            if (direction === "next") {
+                // Incremento l'indice.
+                // Controllo se l'indice scritto è valido
+                this.currentIndex++;
+        
+                if (this.currentIndex >= this.lisa.length) {
+                  this.currentIndex = 0;
+                }
+              } else if (direction === "prev") {
+                this.currentIndex--;
+        
+                if (this.currentIndex < 0) {
+                  this.currentIndex = this.lista.length - 1;
+                }
+            }
         }
     }
 })
