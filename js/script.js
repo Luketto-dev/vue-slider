@@ -45,27 +45,29 @@ const slidesApp = new Vue({
       //rappresenta l indice dell immagine attualmente visualizzaata
       currentIndex: 0,
     },
-    methods:{
+    methods: {
         onClickImg: function(indiceImg){
             console.log(this.lista[indiceImg])
         },
 
-        changeActiveImg(direction){
+        changeActiveImg(direction) {
             if (direction === "next") {
-                // Incremento l'indice.
-                // Controllo se l'indice scritto è valido
-                this.currentIndex++;
-        
-                if (this.currentIndex >= this.lisa.length) {
-                  this.currentIndex = 0;
+            // Incremento l'indice.
+            // Controllo se l'indice scritto è valido
+            this.currentIndex++;
+            
+    
+                if (this.currentIndex >= this.lista.length) {
+                    this.currentIndex = 0;
                 }
-              } else if (direction === "prev") {
+            }else if (direction === "prev") {
                 this.currentIndex--;
-        
+    
                 if (this.currentIndex < 0) {
-                  this.currentIndex = this.lista.length - 1;
+                    this.currentIndex = this.lista.length - 1;
                 }
             }
-        }
-    }
+        },
+    },
 })
+
